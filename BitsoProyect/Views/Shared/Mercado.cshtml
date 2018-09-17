@@ -1,0 +1,37 @@
+﻿@model BitsoProyect.Models.Ticker
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="p-3 text-center">Mercado</h2>
+
+<div class="container border border-info text-center">
+    <div class="row p-3">
+        <div class="col-12 col-md-4 p-2 align-self-center">
+            <p class="h4">Ultimo precio</p>
+            $@Model.UtlimoPrecio MXN
+        </div>
+        <div class="col-12 col-md-4 border-left border-info align-items-stretch  align-self-center">
+            <p class="h4">Volúmen 24 Horas</p>
+            @Model.Volumen
+        </div>
+        <div class="col-12 col-md-4 border-left border-info ">
+            <div class="row p-2 border-bottom border-info">
+                <div class="col-12">
+                    <p class="h4">Máximo</p>
+                    $@Model.Maximo MXN
+                </div>
+            </div>
+            <div class="row  p-2">
+                <div class="col-12">
+                    <p class="h4">Máximo</p>
+                    $@Model.Minimo MXN
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

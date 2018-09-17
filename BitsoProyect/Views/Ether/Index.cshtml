@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (@ViewBag.SelectedOperation == "Trades")
+{
+    @Html.Partial("_Trades", new ViewDataDictionary{
+    {
+      "SelectedOption", "Ether"
+    },
+    {
+      "SelectedOperation", @ViewBag.SelectedOperation
+    }
+  }
+    );
+}
+else if (@ViewBag.SelectedOperation == "OrderBookCompra")
+{
+    @Html.Partial("_OrderBookCompra", new ViewDataDictionary{
+    {
+      "SelectedOption", "Ether"
+    },
+    {
+      "SelectedOperation", @ViewBag.SelectedOperation
+    }
+  }
+    );
+}
+
+else if (@ViewBag.SelectedOperation == "OrderBookVenta")
+{
+    @Html.Partial("_OrderBookVenta", new ViewDataDictionary{
+    {
+      "SelectedOption", "Ether"
+    },
+    {
+      "SelectedOperation", @ViewBag.SelectedOperation
+    }
+  }
+    );
+}
