@@ -2,9 +2,6 @@
 using BitsoProyect.Models;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BitsoProyect.Controllers
@@ -32,9 +29,8 @@ namespace BitsoProyect.Controllers
             }
             catch (Exception exception)
             {
-
-                return Json(null, JsonRequestBehavior.AllowGet);
                 ExceptionHandler.Instance.WriteExceptionLog(exception);
+                return Json(null, JsonRequestBehavior.AllowGet);
             }
         }
         [HttpGet]
@@ -61,7 +57,8 @@ namespace BitsoProyect.Controllers
             try
             {
                 apiResponse = APICLientFactory.CreateApiClient("ticker/?book=btc_mxn");
-                Ticker ticker= JObject.Parse(apiResponse.Data).SelectToken("payload").ToObject<Ticker>();
+                Ticker ticker = JObject.Parse(apiResponse.Data).SelectToken("payload").ToObject<Ticker>();
+
                 return View(ticker);
             }
             catch (Exception exception)

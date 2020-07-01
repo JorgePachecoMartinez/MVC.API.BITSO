@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ApiClient
+﻿namespace ApiClient
 {
     public class APICLientFactory
     {
@@ -14,7 +8,6 @@ namespace ApiClient
             IClientBuilder builder;
 
             builder = new BitsoClientBuilder();
-
             director.Build(builder, relativePath);
 
             return builder.apiResponse;

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace ApiClient
 {
@@ -31,8 +27,8 @@ namespace ApiClient
      
         public async Task<ApiResponse> GetValues(string relativePath)
         {
-          
-            HttpResponseMessage apiResponse = _Client.Client.GetAsync(relativePath).Result;
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+            HttpResponseMessage apiResponse = await _Client.Client.GetAsync(relativePath);
             if (apiResponse.IsSuccessStatusCode)
             {
                 string responseData = await apiResponse.Content.ReadAsStringAsync();
@@ -55,5 +51,6 @@ namespace ApiClient
         {
             get { return _Client.ApiResponse; }
         }
+
     }
 }
